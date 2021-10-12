@@ -11,12 +11,14 @@ var symbols = ("~,!,@,#,$,%,^,&,*,(,),-,+,=,.,/, " )
 
 var generatePassword;
 var upperConf;
+var lowerConf;
 
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", confirmLength);
 generateBtn.addEventListener("click", writePassword);
 generateBtn.addEventListener("click", confirmUpper);
+generateBtn.addEventListener("click", confirmLower);
 
 
 //Function to determine the length of the password
@@ -35,9 +37,7 @@ function confirmLength(){
     
   }
   
-  
 };
-
 
 
 //Function to confirm uppercase letters
@@ -50,22 +50,54 @@ function confirmUpper() {
     alert("Please write Yes or No")
     confirmUpper();
     
-  } else if(upperConf==="yes" || upperConf ==="y"){
+  } else if(upperConf==="yes") {
     upperConf = true;
     return upperConf;
 
-  } else if(upperConf==="no" || upperConf ==="n"){
+  } else if(upperConf==="no") {
     upperConf = false;
     return upperConf;
+  }else {
+    alert("Please write Yes or No")
+    confirmUpper();
   }
-  }
+  return upperConf;
+
+
+
+};
 
 
 
 //Function to confirm lowercase letters
 
+function confirmLower() {
+  lowerConf = prompt("Do you want to include lowercase Letters?(Yes or No):");
+  lowerConf = upperConf.toLowerCase();
 
-// unction to confirm symbols
+  if (lowerConf === null || lowerConf ==="") {
+    alert("Please write Yes or No")
+    confirmLower();
+    
+  } else if(lowerConf==="yes" || lowerConf ==="y"){
+    lowerConf = true;
+    return lowerConf;
+
+  } else if(lowerConf==="no" || lowerConf ==="n"){
+    lowerConf = false;
+    return lowerConf;
+
+  }else {
+    alert("Please write Yes or No")
+    confirmLower();
+  }
+  return lowerConf;
+
+  };
+
+// Function to confirm numbers
+
+// Function to confirm symbols
 
 
 
