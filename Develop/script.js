@@ -8,43 +8,73 @@ var lowerLetters = ("a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z")
 var numbers = ("1,2,3,4,5,6,7,8,9,0")
 var symbols = ("~,!,@,#,$,%,^,&,*,(,),-,+,=,.,/, " )
 
-var passwordLength;
+
 var generatePassword;
+var upperConf;
 
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
 generateBtn.addEventListener("click", confirmLength);
+generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", confirmUpper);
+
 
 //Function to determine the length of the password
 
 function confirmLength(){
-  prompt("How long would you like your password to be?(Must be between 8-128 characters):");
-  if (passwordLength<8) {
+  var passwordLength = prompt("How long would you like your password to be?(Must be between 8-128 characters):");
+  console.log(passwordLength)
+  //validate prompt answer for length
+  if (passwordLength < 8 || passwordLength === null) {
     alert("Password must be between 8-128 characters");
-    prompt("How long would you like your password to be?(Must be between 8-128 characters):");
+    return confirmLength();
   
-  } else if(passwordLength>128) {
+  } else if(passwordLength>128 || passwordLength === null) {
     alert("Password must be between 8-128 characters");
-    prompt("How long would you like your password to be?(Must be between 8-128 characters):");
+    return confirmLength();
     
   }
-  return confirmLength();
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
   
+  
+};
+
+
+
+//Function to confirm uppercase letters
+
+function confirmUpper() {
+  upperConf = prompt("Do you want to include Uppercase Letters?(Yes or No):");
+  upperConf = upperConf.toLowerCase();
+
+  if (upperConf === null || upperConf ==="") {
+    alert("Please write Yes or No")
+    confirmUpper();
+    
+  } else if(upperConf==="yes" || upperConf ==="y"){
+    upperConf = true;
+    return upperConf;
+
+  } else if(upperConf==="no" || upperConf ==="n"){
+    upperConf = false;
+    return upperConf;
+  }
+  }
+
+
+
+//Function to confirm lowercase letters
+
+
+// unction to confirm symbols
+
+
+
+
+
+
+
+
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -76,20 +106,4 @@ THEN a password is generated that matches the selected criteria
 WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 
-
-
-
-
-
-
-
-//Password Criteria - confirm uppercase
-
-function confirmUppercase() {
-  var upperLetters = prompt("Do you want to include uppercase letters?(yes or No):")
-  if (upperLetters === null || confirmUppercase === ""){
-    alert("Please answer Yes or No");
-}
-
-confirmUppercase();
- */
+*/
