@@ -9,9 +9,12 @@ var numbers = ("1,2,3,4,5,6,7,8,9,0")
 var symbols = ("~,!,@,#,$,%,^,&,*,(,),-,+,=,.,/, " )
 
 
+
 var generatePassword;
 var upperConf;
 var lowerConf;
+var numberConf;
+var symbolConf;
 
 
 // Add event listener to generate button
@@ -19,6 +22,8 @@ generateBtn.addEventListener("click", confirmLength);
 generateBtn.addEventListener("click", writePassword);
 generateBtn.addEventListener("click", confirmUpper);
 generateBtn.addEventListener("click", confirmLower);
+generateBtn.addEventListener("click", confirmNumber);
+generateBtn.addEventListener("click", confirmSymbol);
 
 
 //Function to determine the length of the password
@@ -45,6 +50,7 @@ function confirmLength(){
 function confirmUpper() {
   upperConf = prompt("Do you want to include Uppercase Letters?(Yes or No):");
   upperConf = upperConf.toLowerCase();
+  console.log(upperConf)
 
   if (upperConf === null || upperConf ==="") {
     alert("Please write Yes or No")
@@ -62,9 +68,6 @@ function confirmUpper() {
     confirmUpper();
   }
   return upperConf;
-
-
-
 };
 
 
@@ -97,12 +100,55 @@ function confirmLower() {
 
 // Function to confirm numbers
 
+function confirmNumber() {
+  numberConf = prompt("Do you want to include numbers?(Yes or No):");
+  numberConf = numberConf.toLowerCase();
+
+  if (numberConf === null || numberConf ==="") {
+    alert("Please write Yes or No")
+    confirmNumber();
+    
+  } else if(numberConf==="yes" || numberConf ==="y"){
+    numberConf = true;
+    return numberConf;
+
+  } else if(numberConf==="no" || numberConf ==="n"){
+    numberConf = false;
+    return numberConf;
+
+  }else {
+    alert("Please write Yes or No")
+    confirmNumber();
+  }
+  return numberConf;
+
+  };
+
 // Function to confirm symbols
 
+function confirmSymbol() {
+  symbolConf = prompt("Do you want to include special characters?(Yes or No):");
+  symbolConf = symbolConf.toLowerCase();
 
+  if (symbolConf === null || symbolConf ==="") {
+    alert("Please write Yes or No")
+    confirmNumber();
+    
+  } else if(symbolConf==="yes" || symbolConf ==="y"){
+    symbolConf = true;
+    return symbolConf;
 
+  } else if(symbolConf==="no" || symbolConf ==="n"){
+    symbolConf = false;
+    return symbolConf;
 
+  }else {
+    alert("Please write Yes or No")
+    confirmSymbol();
+  }
+  return symbolConf;
 
+  };
 
 
 
