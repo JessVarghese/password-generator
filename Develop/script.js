@@ -15,6 +15,7 @@ var upperConf;
 var lowerConf;
 var numberConf;
 var symbolConf;
+var passwordLength;
 
 
 // Add event listener to generate button
@@ -29,7 +30,7 @@ generateBtn.addEventListener("click", confirmSymbol);
 //Function to determine the length of the password
 
 function confirmLength(){
-  var passwordLength = prompt("How long would you like your password to be?(Must be between 8-128 characters):");
+  passwordLength = prompt("How long would you like your password to be?(Must be between 8-128 characters):");
   console.log(passwordLength)
   //validate prompt answer for length
   if (passwordLength < 8 || passwordLength === null) {
@@ -41,7 +42,6 @@ function confirmLength(){
     return confirmLength();
     
   }
-  
 };
 
 
@@ -50,7 +50,7 @@ function confirmLength(){
 function confirmUpper() {
   upperConf = prompt("Do you want to include Uppercase Letters?(Yes or No):");
   upperConf = upperConf.toLowerCase();
-  console.log(upperConf)
+  
 
   if (upperConf === null || upperConf ==="") {
     alert("Please write Yes or No")
@@ -76,7 +76,7 @@ function confirmUpper() {
 
 function confirmLower() {
   lowerConf = prompt("Do you want to include lowercase Letters?(Yes or No):");
-  lowerConf = upperConf.toLowerCase();
+  lowerConf = lowerConf.toLowerCase();
 
   if (lowerConf === null || lowerConf ==="") {
     alert("Please write Yes or No")
@@ -150,19 +150,70 @@ function confirmSymbol() {
 
   };
 
+function generatePassword() {
+  var randomChar = upperLetters; lowerLetters; numbers; symbols;
+  var password = "";
+
+  if (upperConf&&numberConf&&symbolConf&&lowerConf) {
+    randomChar+=upperLetters+numbers+symbols+lowerLetters;
+
+  } else if (upperConf&&numberConf&&symbolConf) {
+    randomChar+=upperLetters+numbers+symbols;
+    
+  }else if (upperConf&&numberConf&&lowerConf) {
+    randomChar+=upperLetters+numbers+lowerLetters;
+
+  }else if (upperConf&&numberConf) {
+    randomChar+=upperLetters+numbers;
+
+  }else if (numberConf&&symbolConf&&lowerConf) {
+    randomChar+=numbers+symbols+lowerLetters;
+
+  }else if (numberConf&&symbolConf) {
+    randomChar+=numbers+symbols;
+
+  }else if (numberConf&&lowerConf) {
+    randomChar+=numbers+lowerLetters;
+  
+  }else if (symbolConf&&lowerConf) {
+    randomChar+=symbols+lowerLetters;
+
+  }else if (upperConf) {
+    randomChar+=upperLetters;
+
+  }else if (numberConf) {
+    randomChar+=numbers;
+
+  }else if (symbolConf) {
+    randomChar+=symbols;
+
+  }else if (lowerConf) {
+    randomChar+=lowerLetters;
+  }
+  
+  for(var i = 0; i < passwordLength; i++){
+    password += randomChar.charAt(Math.floor(Math.random() * randomChar.length));
+    
+  }
+  return password;
+
+};
+  
+ 
+
+   
+   
 
 
+ 
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
 
-}
-
-
+};
 
 
 
