@@ -151,7 +151,7 @@ function confirmSymbol() {
 
 function generatePassword() {
   
-  var randomChar= upperLetters+lowerLetters+numbers+symbols;
+  var randomChar= upperLetters; lowerLetters; numbers; symbols;
   var password = "";
 
   if (upperConf&&numberConf&&symbolConf&&lowerConf) {

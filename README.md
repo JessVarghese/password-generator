@@ -7,7 +7,7 @@ The password generator provides a user with a secure password that they can util
 The user will be prompted with windows to select criteria based on uppercase & lowercase letters, numbers and symbols to which they will then be provided a random password based on the sleeted criteria.
 
 
-[Deployed application]().
+[Deployed application](https://jessvarghese.github.io/password-generator).
 
 ## Table of Contents
 
@@ -28,6 +28,8 @@ gh repo clone JessVarghese/password-generator
 
 
 ![visuals](https://raw.githubusercontent.com/JessVarghese/password-generator/main/Assets/03-javascript-homework-demo.png)
+
+![visuals](https://raw.githubusercontent.com/JessVarghese/password-generator/main/Assets/Screen%20Shot%202021-10-16%20at%202.11.21%20PM%20(2).png)
 
 
 ## License
