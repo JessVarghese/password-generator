@@ -27,7 +27,7 @@ gh repo clone JessVarghese/password-generator
 ## Usage
 
 
-![visuals]()
+![visuals](https://raw.githubusercontent.com/JessVarghese/password-generator/main/Assets/03-javascript-homework-demo.png)
 
 
 ## License
