@@ -3,12 +3,10 @@
 var generateBtn = document.querySelector("#generate");
 
 //Password variables
-var upperLetters = ("A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z")
-var lowerLetters = ("a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z")
-var numbers = ("1,2,3,4,5,6,7,8,9,0")
-var symbols = ("~,!,@,#,$,%,^,&,*,(,),-,+,=,.,/, " )
-
-
+var upperLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var lowerLetters = "abcdefghijklmnopqrstuvwxyz";
+var numbers = "1234567890";
+var symbols = "~!@#$%^&*()-+=./, ";
 
 var generatePassword;
 var upperConf;
@@ -148,11 +146,12 @@ function confirmSymbol() {
   }
   return symbolConf;
 
+
   };
 
 function generatePassword() {
   
-  var randomChar = upperLetters; lowerLetters; numbers; symbols;
+  var randomChar= upperLetters+lowerLetters+numbers+symbols;
   var password = "";
 
   if (upperConf&&numberConf&&symbolConf&&lowerConf) {
@@ -201,6 +200,7 @@ function generatePassword() {
 
 };
   
+ 
 
 // Write password to the #password input
 function writePassword() {
@@ -209,3 +209,5 @@ function writePassword() {
   passwordText.value = password;
 
 };
+
+
